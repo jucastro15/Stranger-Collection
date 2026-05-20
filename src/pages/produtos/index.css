@@ -1,0 +1,949 @@
+/* ==========================================================================
+   1. RESET, VARIÁVEIS & CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f6f9;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Estilo padrão para QUALQUER link do site não virar aquele azul sublinhado feio */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* ==========================================================================
+   2. REGRAS GLOBAIS DE HEADER & NAVBAR (MENU SUPERIOR)
+   ========================================================================== */
+header {
+    background-color: #0076b6; /* Azul claro do topo */
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.logo-icon {
+    width: 30px;
+    margin-top: 8px;
+}
+
+/* Garante o alinhamento da navegação */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+/* Estiliza especificamente os links do Menu Superior */
+nav ul li a {
+    color: #ffffff !important; /* Força o texto a ser branco */
+    font-weight: 500;
+    font-size: 15px;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #ff6b00 !important; /* Destaca em Laranja no hover ou quando ativo */
+}
+
+/* ==========================================================================
+   3. BOTÕES GLOBAIS (.btn, .btn-primary, etc.)
+   ========================================================================== */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #ff6b00 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #e05e00 !important;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid #ff6b00 !important;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 107, 0, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. HOME - HERO SECTION (BANNER PRINCIPAL)
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(11, 26, 48, 0.9), rgba(11, 26, 48, 0.95)), 
+                url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+    padding: 100px 50px;
+    display: flex;
+    align-items: center;
+    min-height: 550px;
+    color: #ffffff;
+    border-bottom: 4px solid #ff6b00;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-images {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-mockup-placeholder {
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-mockup-placeholder span {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero-content {
+    flex: 1.2;
+}
+
+.hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   5. HOME - BARRA DE DIFERENCIAIS
+   ========================================================================== */
+.features-bar {
+    background-color: #0b1a30; 
+    padding: 25px 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #ffffff;
+    flex: 1;
+}
+
+.feature-icon {
+    font-size: 28px;
+    color: #ff6b00;
+    background: rgba(255, 107, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-text h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.feature-text p {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   6. HOME - SEÇÃO PRODUTO DESTAQUE (COLETE COMFORT)
+   ========================================================================== */
+.product-highlight {
+    padding: 80px 50px;
+    background-color: #ffffff;
+}
+
+.product-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.product-image-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.product-image-placeholder {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.product-image-placeholder img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+}
+
+.product-info-side {
+    flex: 1.2;
+}
+
+.product-info-side h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #0b1a30;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.product-info-side h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #ff6b00;
+    border-radius: 2px;
+}
+
+.product-bullets {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.product-bullets li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #4a5568;
+}
+
+.product-bullets li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ff6b00;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.product-bullets li strong {
+    color: #0b1a30;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   7. HOME - PROVA SOCIAL, DEPOIMENTOS & CERTIFICAÇÕES
+   ========================================================================== */
+.trust-section {
+    padding: 60px 50px 80px 50px;
+    background-color: #f8fafc;
+}
+
+.certifications-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cert-title {
+    font-size: 12px;
+    font-family: 'Orbitron', sans-serif;
+    color: #64748b;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.cert-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.cert-badge {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0b1a30;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.section-divider {
+    max-width: 1200px;
+    margin: 50px auto;
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.testimonials-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title-dark {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title-dark h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    color: #0b1a30;
+    margin-bottom: 10px;
+}
+
+.section-title-dark p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+.testimonials-container {
+    display: flex;
+    gap: 30px;
+}
+
+.testimonial-card {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 40px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+}
+
+.quote-icon {
+    font-size: 60px;
+    color: rgba(255, 107, 0, 0.15);
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    font-family: serif;
+    line-height: 1;
+}
+
+.testimonial-text {
+    font-size: 15px;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-avatar {
+    width: 45px;
+    height: 45px;
+    background: #e2e8f0;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.author-info h4 {
+    font-size: 15px;
+    color: #0b1a30;
+    font-weight: 600;
+}
+
+.author-info p {
+    font-size: 12px;
+    color: #ff6b00;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   8. HOME - SEÇÃO COMO FUNCIONA (ECOSSISTEMA)
+   ========================================================================== */
+.how-it-works {
+    padding: 90px 50px;
+    background-color: #0b1a30; 
+    color: #ffffff;
+}
+
+.how-it-works .section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+}
+
+.how-it-works .section-title h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.how-it-works .section-title p {
+    color: #94a3b8;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.steps-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.step-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 30px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #ff6b00;
+}
+
+.step-icon-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.step-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: rgba(255, 107, 0, 0.4);
+}
+
+.step-icon {
+    font-size: 36px;
+    background: rgba(255, 107, 0, 0.1);
+    padding: 12px;
+    border-radius: 50px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.step-card p {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   9. PÁGINA SOBRE NÓS (EXCLUSIVOS)
+   ========================================================================== */
+.about-hero {
+    background: linear-gradient(rgba(11, 26, 48, 0.85), rgba(11, 26, 48, 0.9)), 
+                url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+    padding: 80px 20px;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 4px solid #ff6b00;
+}
+
+.about-hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.about-hero-content p {
+    font-size: 16px;
+    color: #cbd5e1;
+    font-weight: 300;
+}
+
+.about-intro {
+    padding: 80px 50px;
+    background-color: #ffffff;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-text-side {
+    flex: 1.2;
+}
+
+.about-text-side h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #0b1a30;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-text-side p {
+    font-size: 16px;
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-image-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-video-placeholder {
+    width: 100%;
+    max-width: 450px;
+    height: 300px;
+    background-color: #0b1a30;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px;
+    border-left: 5px solid #ff6b00;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.about-video-placeholder span {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.about-video-placeholder h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.about-video-placeholder p {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.mve-section {
+    padding: 80px 50px;
+    background-color: #f8fafc;
+}
+
+.mve-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.mve-card {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.01);
+    transition: transform 0.3s ease;
+}
+
+.mve-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff6b00;
+}
+
+.mve-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    background: rgba(255, 107, 0, 0.1);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.mve-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #0b1a30;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.mve-card p {
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+.valores-list {
+    list-style: none;
+}
+
+.valores-list li {
+    font-size: 14px;
+    color: #4a5568;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   10. PÁGINA DE PRODUTOS (CATÁLOGO / GRID)
+   ========================================================================== */
+.products-hero {
+    background: linear-gradient(rgba(11, 26, 48, 0.85), rgba(11, 26, 48, 0.9)), 
+                url('https://images.unsplash.com/photo-1581092162384-8987c1794ed9?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+    padding: 80px 20px;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 4px solid #ff6b00;
+}
+
+.products-hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.products-hero-content p {
+    font-size: 16px;
+    color: #cbd5e1;
+    font-weight: 300;
+}
+
+.products-catalog {
+    padding: 80px 50px;
+    background-color: #f4f6f9;
+}
+
+.catalog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff6b00;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.card-image-wrapper {
+    width: 100%;
+    height: 240px; 
+    position: relative;
+    background-color: #f8fafc;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.badge-tech {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #0b1a30;
+    color: #ff6b00;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+.card-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-info h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #0b1a30;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.product-desc {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.product-price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0b1a30;
+    margin-bottom: 15px;
+}
+
+.btn-card {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   11. GLOBAL INSTITUTIONAL FOOTER (RODAPÉ DO SITE)
+   ========================================================================== */
+footer, .main-footer {
+    background-color: #060f1d !important; /* Força o fundo escuro real */
+    color: #94a3b8 !important;
+    padding: 80px 50px 30px 50px !important;
+    font-size: 14px;
+    border-top: 2px solid rgba(255, 255, 255, 0.05);
+    display: block;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.brand-col {
+    flex: 1.5;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.logo-icon-small {
+    width: 24px;
+    height: 24px;
+    margin-top: 8px;
+}
+
+.brand-col p {
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.footer-col h4 {
+    color: #ffffff !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.footer-col ul {
+    list-style: none !important;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+/* Força os links das listas do rodapé a serem cinzas e laranjas no hover */
+.footer-col ul li a {
+    color: #94a3b8 !important;
+    font-weight: normal;
+}
+
+.footer-col ul li a:hover {
+    color: #ff6b00 !important;
+}
+
+.contact-info {
+    margin-bottom: 12px;
+    font-weight: 300;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 60px auto 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* ==========================================================================
+   12. GLOBAL RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 968px) {
+    header { padding: 15px 20px; }
+    .hero, .features-bar, .product-highlight, .trust-section, .how-it-works, .about-intro, .mve-section, .main-footer { 
+        padding: 40px 20px !important; 
+    }
+    .hero-container, .features-container, .product-container, .testimonials-container, .steps-container, .about-container, .mve-container, .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .hero-content, .about-text-side { text-align: center; }
+    .hero-buttons { justify-content: center; }
+    .feature-item, .footer-col { width: 100%; }
+    .cert-logos { gap: 15px; }
+}
